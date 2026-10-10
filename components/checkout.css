@@ -1,0 +1,421 @@
+
+/* src/app/checkout/checkout.css */
+
+.checkout-page {
+  min-height: 100vh;
+  padding: 48px 20px 64px;
+  background: #f5f7fb;
+  color: #172033;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.checkout-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.checkout-header {
+  margin-bottom: 30px;
+}
+
+.checkout-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 750;
+  letter-spacing: -0.8px;
+  color: #172033;
+}
+
+.checkout-header p {
+  margin: 0;
+  color: #687386;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.checkout-card {
+  min-width: 0;
+  padding: 28px;
+  background: #ffffff;
+  border: 1px solid #e6eaf0;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(23, 32, 51, 0.04);
+}
+
+.checkout-section + .checkout-section {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #edf0f5;
+}
+
+.checkout-section h2,
+.booking-summary > h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #172033;
+}
+
+.section-description {
+  margin: 0 0 24px;
+  color: #737e90;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-group label {
+  color: #303b4f;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid #dce2eb;
+  border-radius: 9px;
+  outline: none;
+  background: #fff;
+  color: #172033;
+  font-size: 15px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #9aa3b2;
+}
+
+.form-group input:hover {
+  border-color: #aeb9ca;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.payment-section {
+  min-width: 0;
+}
+
+.card-payment-container {
+  width: 100%;
+  min-height: 90px;
+  padding: 18px;
+  border: 1px solid #e0e6ef;
+  border-radius: 12px;
+  background: #fbfcfe;
+}
+
+#targetElement {
+  width: 100%;
+  min-width: 0;
+}
+
+.payment-security-note {
+  margin: 16px 0 0;
+  color: #788397;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.info-message,
+.success-message,
+.error-message {
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.info-message {
+  border: 1px solid #dce7fb;
+  background: #f3f7ff;
+  color: #31578c;
+}
+
+.success-message {
+  border: 1px solid #bce8ce;
+  background: #effbf3;
+  color: #187344;
+}
+
+.error-message {
+  margin-bottom: 22px;
+  border: 1px solid #fecaca;
+  background: #fff1f2;
+  color: #b42332;
+}
+
+.sandbox-note {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff8e8;
+  color: #805b13;
+  font-size: 12px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.primary-button {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #175cd3;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.pay-button {
+  margin-top: 28px;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #124bb0;
+  transform: translateY(-1px);
+}
+
+.primary-button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 3px;
+}
+
+.primary-button:disabled {
+  background: #aab8ce;
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.checkout-disclaimer {
+  margin: 14px 0 0;
+  color: #8a94a5;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Booking summary */
+
+.booking-summary {
+  position: sticky;
+  top: 24px;
+}
+
+.summary-hotel {
+  margin-top: 20px;
+}
+
+.summary-hotel h3 {
+  margin: 0 0 8px;
+  color: #172033;
+  font-size: 17px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.summary-hotel p {
+  margin: 0;
+  color: #737e90;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.summary-divider {
+  height: 1px;
+  margin: 22px 0;
+  background: #e9edf3;
+}
+
+.summary-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.summary-row span {
+  color: #737e90;
+}
+
+.summary-row strong {
+  color: #273246;
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.summary-total {
+  align-items: center;
+  font-size: 15px;
+}
+
+.summary-total strong {
+  color: #175cd3;
+  font-size: 22px;
+  font-weight: 750;
+}
+
+.summary-footnote {
+  margin: 20px 0 0;
+  color: #8a94a5;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Booking confirmation */
+
+.success-card {
+  max-width: 720px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.success-icon {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #e7f8ed;
+  color: #17834b;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.success-card > h1 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  color: #172033;
+}
+
+.success-card > p {
+  color: #687386;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.booking-reference {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 24px 0;
+  padding: 18px;
+  border: 1px dashed #c8d4e5;
+  border-radius: 10px;
+  background: #f8faff;
+}
+
+.booking-reference span {
+  color: #737e90;
+  font-size: 13px;
+}
+
+.booking-reference strong {
+  color: #175cd3;
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.success-card .booking-summary {
+  position: static;
+  margin-top: 28px;
+  text-align: left;
+}
+
+.confirmation-note {
+  margin-top: 24px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+  .checkout-page {
+    padding: 32px 16px 48px;
+  }
+
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-summary {
+    position: static;
+    grid-row: 1;
+  }
+
+  .checkout-card {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .checkout-page {
+    padding: 24px 12px 36px;
+  }
+
+  .checkout-header {
+    margin-bottom: 22px;
+  }
+
+  .checkout-card {
+    padding: 19px 16px;
+    border-radius: 12px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .checkout-section h2,
+  .booking-summary > h2 {
+    font-size: 18px;
+  }
+
+  .summary-total strong {
+    font-size: 19px;
+  }
+
+  .success-card > h1 {
+    font-size: 24px;
+  }
+}

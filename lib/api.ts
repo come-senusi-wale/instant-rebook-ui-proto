@@ -114,6 +114,28 @@ export async function bookHotel(
 
 
 
+// export async function getHotelCities(
+//   countryCode = 'CA',
+// ): Promise<HotelCitiesResponse> {
+//   const params = new URLSearchParams({
+//     countryCode,
+//   });
+
+//   const response = await fetch(
+//     `${API_URL}/cities?${params.toString()}`,
+//   );
+
+//   const result =
+//     (await response.json()) as HotelCitiesResponse;
+
+//   if (!response.ok || !result.success) {
+//     throw new Error('Unable to fetch cities');
+//   }
+
+//   return result;
+// }
+
+
 export async function getHotelCities(
   countryCode = 'CA',
 ): Promise<HotelCitiesResponse> {
@@ -121,18 +143,42 @@ export async function getHotelCities(
     countryCode,
   });
 
-  const response = await fetch(
-    `${API_URL}/cities?${params.toString()}`,
-  );
+  const url = `${API_URL}/cities?${params.toString()}`;
 
-  const result =
-    (await response.json()) as HotelCitiesResponse;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+    },
+    cache: 'no-store',
+  });
 
-  if (!response.ok || !result.success) {
-    throw new Error('Unable to fetch cities');
+  const result = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    console.error('Get hotel cities failed:', {
+      url,
+      status: response.status,
+      result,
+    });
+
+    throw new Error(
+      result?.message ??
+        result?.error ??
+        `Unable to fetch cities (HTTP ${response.status})`,
+    );
   }
 
-  return result;
+  if (!result?.success) {
+    console.error('Invalid cities API response:', result);
+
+    throw new Error(
+      result?.message ??
+        'The cities API returned an unsuccessful response',
+    );
+  }
+
+  return result as HotelCitiesResponse;
 }
 
 
